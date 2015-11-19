@@ -2,11 +2,24 @@
 <html ng-app="angularProject" lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>AngularJs Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Notebook App</title>
 	<link rel="stylesheet" type="text/css" href="node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="build/css/angularProject.all.css">
 </head>
 <body>
+	<header class="container l-header">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="header-title">Notebook</div>
+			</div>
+			<div class="col-md-3 text-right">
+				<button type="button" class="btn btn-success">Вход</button>
+				<button type="button" class="btn btn-warning">Регистрация</button>
+			</div>
+		</div>
+	</header>
 	<ng-view></ng-view>
 	<script src="build/js/vendors.js"></script>
 	<script src="build/js/angularProject.all.js"></script>

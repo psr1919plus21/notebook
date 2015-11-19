@@ -1,0 +1,15 @@
+/* Home */
+.home-intro {background:#fff;margin-top:30px;}
+.home-search {border-bottom:1px dotted $colorBorderGray;margin-top:20px;padding-bottom:30px;}
+.note-form_input {}
+
+.content {margin-top:30px;margin-bottom:200px;}
+.content-list {list-style:none;padding:0;}
+.content-list_item {margin-bottom:42px;}
+.content-list_item:last-child {border-bottom:0;margin-bottom:0;}
+
+.note-body {border:1px solid $colorBorderGray;background:$colorNoteBg;border-radius:0 4px 4px 4px;padding:10px 14px 10px;}
+.note-body:hover .remove-note {opacity:.6;}
+.note-date {font-size:14px;padding:8px 6px 4px;border-radius:4px 4px 0 0;position:relative;top:1px;}
+.remove-note {opacity:0;cursor:pointer;float:right;position:relative;top:-5px;right:-9px;transition:opacity 200ms;}
+.note-body:hover .remove-note:hover {opacity:1;}

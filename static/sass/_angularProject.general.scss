@@ -3,8 +3,14 @@ $colorRed: #900;
 $colorGreen: #090;
 $colorBlue: #009;
 
+/* Borders */
+$colorBorderGray: #c3c3c3;
+
 /* Backgrounds */
+$colorHeaderBg: #f3f3f3;
 $colorPageBg: #f7f7f7;
+$colorContentBg: #555;
+$colorNoteBg: #FCFCFC;
 
 /* Common styles */
-body {background:$colorPageBg;}
+body {}
