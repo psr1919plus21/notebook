@@ -1,0 +1,22 @@
+{
+  "name": "angularjs_project",
+  "version": "0.0.1",
+  "authors": [
+    "Filipp Gaponenko <psr1919plus21@gmail.com>"
+  ],
+  "description": "empty AngularJs project",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "angularJs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
