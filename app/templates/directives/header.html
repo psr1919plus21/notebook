@@ -1,0 +1,78 @@
+
+<header class="container l-header">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="header-title">Notebook</div>
+		</div>
+		<div class="col-md-3 text-right">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Вход</button>
+			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#registrationModal">Регистрация</button>
+		</div>
+	</div>
+
+    <!-- Login -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-sm" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Вход</h4>
+		      </div>
+		       <form class="">
+		           <div class="modal-body">
+						<div class="form-group">
+							<label class=" text-right" for="login">Логин:</label>
+							<input type="text" class="form-control col-sm-10" id="login" placeholder="Логин">
+						</div>
+						<div class="form-group">
+							<label class="text-right" for="password">Пароль:</label>
+							<input type="password" class="form-control" id="password" placeholder="Пароль">
+						</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="submit" ng-click="logIn()" class="btn btn-primary">Войти</button>
+			      </div>
+		      </form>
+		    </div>
+		</div>
+	</div>
+
+	<!-- Registration -->
+	<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-sm" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
+		      </div>
+		       <form class="">
+		           <div class="modal-body">
+						<div class="form-group">
+							<label class=" text-right" for="login">Логин:</label>
+							<input type="text" class="form-control col-sm-10" id="login" placeholder="Логин">
+						</div>
+						<div class="form-group">
+							<label class=" text-right" for="login">Email:</label>
+							<input type="email" class="form-control col-sm-10" id="login" placeholder="Логин">
+						</div>
+						<div class="form-group">
+							<label class="text-right" for="password">Пароль:</label>
+							<input type="password" class="form-control" id="password" placeholder="Пароль">
+						</div>
+						<div class="form-group">
+							<label class="text-right" for="password">Подтвердить пароль:</label>
+							<input type="password" class="form-control" id="password" placeholder="Пароль">
+						</div>
+						<div class="form-group">
+							<input type="checkbox"><label class="registration-agree">Я согласен с <a href="#">условиями использования</a></label>
+						</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="submit" ng-click="logIn()" class="btn btn-primary">Регистрация</button>
+			      </div>
+		      </form>
+		    </div>
+		</div>
+	</div>
+</header>

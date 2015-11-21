@@ -1,4 +1,4 @@
-angularProject.controller 'homeCtrl', ($scope)->
+noteBook.controller 'homeCtrl', ($scope)->
   console.log 'Run homeCtrl'
   $scope.notes = []
   $scope.noteId = 0
