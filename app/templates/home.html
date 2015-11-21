@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
     <div class="col-md-4">
-	    <input type="text" class="form-control" placeholder="Поиск...">
+	    <input type="text" class="form-control" ng-model="searchNote" placeholder="Поиск...">
   	</div><!-- /.col-lg-6 -->
   	<div class="col-md-4"></div>
   </div>
@@ -23,9 +23,9 @@
     <div class="col-md-8">
     	<h3 class="">Новая заметка</h3>
 	    <div class="input-group">
-	      <input type="text" class="form-control" placeholder="Есть, что записать?">
+	      <input id="new-note-input" type="text" class="form-control" placeholder="Есть, что записать?">
 	      <span class="input-group-btn">
-	        <button class="btn btn-info" type="button">Записать</button>
+	        <button class="btn btn-info" type="button" ng-click="createNote()">Записать</button>
 	      </span>
     	</div><!-- /input-group -->
   	</div>
@@ -39,74 +39,11 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<ul class="content-list">
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
+				<li ng-repeat="note in notes | filter:searchNote | orderBy:'-'" data-id="{{note.id}}" class="content-list_item">
+					<label for="" class="note-date label label-warning">{{note.date}}</label>
 					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
-					</div>
-				</li>
-				<li class="content-list_item">
-					<label for="" class="note-date label label-warning">20.11.2015</label>
-					<div class="note-body">
-						<span class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">Новая заметка про кое-что очень интересное</h4>
+						<span ng-click="removeNote($event)" class="remove-note glyphicon glyphicon-remove"></span>
+						<h4 class="note-title">{{note.text}}</h4>
 					</div>
 				</li>
 			</ul>
