@@ -25,7 +25,8 @@ gulp.task "vendors", ->
 		"node_modules/angular/angular.min.js"	
 		"node_modules/angular-route/angular-route.min.js"	
 		"node_modules/jquery/dist/jquery.min.js"	
-		"node_modules/bootstrap/dist/js/bootstrap.min.js"	
+		"node_modules/bootstrap/dist/js/bootstrap.min.js"
+		"./tests/lib/angular-mock.js"	
 		# Insert path to vendors js here.
 	]
 	.pipe(concat "vendors.js")
@@ -48,6 +49,15 @@ gulp.task "coffee", ["coffeeConcat"], ->
 	.pipe(do coffee)
 	.pipe gulp.dest path.dist.js
 
+gulp.task "concatAll", ["vendors", "coffee"] , ->
+	gulp.src [
+		"./build/js/vendors.js"
+		"./build/js/angularProject.all.js"
+	]
+	.pipe(concat "angularProject.all.js")
+	.pipe gulp.dest path.dist.js
+
+
 # Compile angularProject.scss to "./build/css/angularProject.css"
 gulp.task "sass", ->
 	gulp.src(path.src.sass)
@@ -63,12 +73,12 @@ gulp.task "autoprefixer", ["sass"], ->
 # Watch for changes
 gulp.task "watch", ->
 	watch path.src.coffee, ->
-		gulp.run "coffee"
+		gulp.run "concatAll"
 	watch path.src.sass, ->
 		gulp.run "autoprefixer"
 	
 # Compile static
-gulp.task "default", ["vendors",  "autoprefixer", "fonts", "coffee"], ->
+gulp.task "default", ["concatAll",  "autoprefixer", "fonts"], ->
 
 # Compile static and watch
-gulp.task "dev", ["vendors",  "autoprefixer", "fonts", "coffee", "watch"], ->
+gulp.task "dev", ["concatAll",  "autoprefixer", "fonts", "watch"], ->
