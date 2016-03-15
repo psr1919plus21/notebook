@@ -1,8 +1,8 @@
 angular.module("noteBook").directive "notebookHeader", ($location)->
   restrict: "E"
   replace: true
-  templateUrl: "/notebook/app/templates/directives/header.html"
-  
+  templateUrl: "/app/templates/directives/header.html"
+
   link: ($scope, $element, $attrs)->
     console.log "header dirrective"
 

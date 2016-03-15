@@ -40,10 +40,10 @@
 		<div class="col-md-8">
 			<ul class="content-list">
 				<li ng-repeat="note in notes | filter:searchNote | orderBy:'-'" data-id="{{note.id}}" class="content-list_item">
-					<label for="" class="note-date label label-warning">{{note.date}}</label>
+					<label for="" class="note-date label label-warning">{{note.modified}}</label>
 					<div class="note-body">
 						<span ng-click="removeNote($event)" class="remove-note glyphicon glyphicon-remove"></span>
-						<h4 class="note-title">{{note.text}}</h4>
+						<h4 class="note-title">{{note.note}}</h4>
 					</div>
 				</li>
 			</ul>

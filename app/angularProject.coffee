@@ -1,16 +1,19 @@
-window.noteBook = angular.module("noteBook", ['ngRoute'])
+window.noteBook = angular.module("noteBook", ['ngRoute', 'ngResource'])
   .config ($routeProvider, $locationProvider)->
+    $locationProvider.html5Mode
+     enabled: true,
+     requireBase: false
+
     $routeProvider
       .when "/",
-        templateUrl: "/notebook/app/templates/home.html"
+        templateUrl: "/app/templates/home.html"
         controller: "homeCtrl"
 
       .when "/anotherUrl",
-        templateUrl: "/notebook/app/templates/another.html"
+        templateUrl: "/app/templates/another.html"
         controller: "anotherCtrl"
 
       .otherwise {redirectTo: "/"}
-
 
 angular.element.prototype.closest = (parentClass)->
   $this = this
@@ -25,9 +28,9 @@ angular.element.prototype.closest = (parentClass)->
 angular.element.prototype.findChildrenByClassName = (childrenClass)->
   $this = this
   childElement = undefined
-  childNodes = Array.prototype.slice.call $this[0].childNodes 
+  childNodes = Array.prototype.slice.call $this[0].childNodes
   childNodes.forEach (children)->
     if children.nodeType != 3 and angular.element(children).hasClass childrenClass
       childElement = children
   childElement
-    
+

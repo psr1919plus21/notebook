@@ -18,15 +18,16 @@ path =
 		css: "./build/css/"
 		fonts: "./build/fonts/"
 		img: "./build/img/"
-		
+
 # Concat vendors js files in 'vendors.js'
 gulp.task "vendors", ->
 	gulp.src [
-		"node_modules/angular/angular.min.js"	
-		"node_modules/angular-route/angular-route.min.js"	
-		"node_modules/jquery/dist/jquery.min.js"	
+		"node_modules/angular/angular.min.js"
+    "node_modules/angular-route/angular-route.min.js"
+		"node_modules/angular-resource/angular-resource.min.js"
+		"node_modules/jquery/dist/jquery.min.js"
 		"node_modules/bootstrap/dist/js/bootstrap.min.js"
-		"./tests/lib/angular-mock.js"	
+		"./tests/lib/angular-mock.js"
 		# Insert path to vendors js here.
 	]
 	.pipe(concat "vendors.js")
@@ -76,7 +77,7 @@ gulp.task "watch", ->
 		gulp.run "concatAll"
 	watch path.src.sass, ->
 		gulp.run "autoprefixer"
-	
+
 # Compile static
 gulp.task "default", ["concatAll",  "autoprefixer", "fonts"], ->
 
