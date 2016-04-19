@@ -77,7 +77,24 @@ app.put('/api/articles/:id', function (req, res){
 });
 
 app.delete('/api/articles/:id', function (req, res){
-    res.send('This is not implemented now');
+  return ArticleModel.findById(req.params.id, function(err, article) {
+    if (!article) {
+      res.statusCode = 404;
+      return res.send({error: 'Not found.'});
+    }
+
+    return article.remove(function(err){
+      if (!err) {
+        log.info('Article removed.');
+        res.send({status: 'OK. Article removed.'});
+      } else {
+        res.statusCode = 500;
+        log.error('Internal error(%d): %s', res.statusCode, err.message);
+        return res.send({error: 'Server error'});
+      }
+    });
+  });
+
 });
 
 // 404.

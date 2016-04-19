@@ -39,7 +39,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<ul class="content-list">
-				<li ng-repeat="note in notes | filter:searchNote | orderBy:'-'" data-id="{{note.id}}" class="content-list_item">
+				<li ng-repeat="note in notes | filter:searchNote | orderBy:'-'" data-noteid="{{note._id}}" class="content-list_item">
 					<label for="" class="note-date label label-warning">{{note.modified}}</label>
 					<div class="note-body">
 						<span ng-click="removeNote($event)" class="remove-note glyphicon glyphicon-remove"></span>

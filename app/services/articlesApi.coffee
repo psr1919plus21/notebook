@@ -1,6 +1,6 @@
 noteBook.service "articlesApi", ($resource)->
   console.log "create service"
-  $resource "/api/articles/:article/", {}
+  $resource "/api/articles/:article/:id", {}
   ,
   getArticles: # GET /api/articles
     method: "GET"
@@ -11,3 +11,9 @@ noteBook.service "articlesApi", ($resource)->
     isArray: false
     params:
       article: "@article"
+
+  deleteArticle: # DELETE /api/articles/id
+    method: "DELETE"
+    isArray: false
+    params:
+      id: "@id"
