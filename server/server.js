@@ -49,10 +49,10 @@ app.post('/api/articles', function(req, res) {
     images: req.body.images
   });
 
-  article.save(function(err){
+  article.save(function(err, obj){
+    log.info("IIIIDDDD: " + obj._id);
     if (!err){
-      log.info("Article created!")
-      return res.send({status: "OK", article: article});
+      return res.send({status: "OK", article: article, id: obj._id});
     } else {
       console.log(err);
       if(err.name == 'ValidationError') {

@@ -14,9 +14,11 @@ noteBook.controller 'homeCtrl', ($q, $scope, articlesApi)->
           title: "testtitle"
           note: newNoteText
           modified: new Date().toLocaleString()
-        $scope.notes.push note
-        newNoteInput.val ""
-        articlesApi.postArticle note
+
+        $q.when(articlesApi.postArticle(note).$promise).then (data)->
+          note._id = data.id
+          $scope.notes.push note
+          newNoteInput.val ""
 
 
     $scope.removeNote = ($event)->
@@ -24,5 +26,9 @@ noteBook.controller 'homeCtrl', ($q, $scope, articlesApi)->
       currentNoteId = currentNote.attr "data-noteid"
       $q.when(articlesApi.deleteArticle(id: currentNoteId).$promise).then ->
         currentNote.remove()
+        $scope.notes.forEach (note, index)->
+          if note._id == currentNoteId
+            $scope.notes.splice index, 1
+            return
         return
 
